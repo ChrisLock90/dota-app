@@ -1,15 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import React, {Component} from 'react';
 
-
-class App extends Component {
-  render () {
-    return (
-    <h1>Dota 2 Techies Stats</h1>
-    );
-  }
+function App() {
+  return (
+    <div className="Dota App">
+      <header className="Dota 2 Techies Stats">
+        <img src={Techies} className="Techies" alt="Techies" />
+        <p>
+          Dota 2 app to view Techies stats
+        </p>                        
+      </header>
+      <body>
+        
+      </body>
+    </div>
+  );
 }
 
 export default App;

@@ -1,19 +1,14 @@
 import React from 'react';
-import Techies from './Techies.jpg';
 import './App.css';
-import DotaApi from './Services/DotaApi';
+import HeroList from './Components/HeroList';
 
 class App extends React.Component {    
   
   render() {
     return (
-      <div className="Dota App">
-        <div>
-        <img src={Techies} className="Techies" alt="Techies" />
-          <p>
-            Dota 2 app to view Techies stats
-          </p>                             
-          <div><DotaApi /></div>          
+      <div className="Dota 2 Hero App">
+        <div>                                                               
+          <div><HeroList /></div>          
         </div>           
       </div>        
     );

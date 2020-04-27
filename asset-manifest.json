@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/dota-app/static/css/main.d1b05096.chunk.css",
-    "main.js": "/dota-app/static/js/main.72975d26.chunk.js",
-    "main.js.map": "/dota-app/static/js/main.72975d26.chunk.js.map",
+    "main.css": "/dota-app/static/css/main.9274c842.chunk.css",
+    "main.js": "/dota-app/static/js/main.66f9ba9b.chunk.js",
+    "main.js.map": "/dota-app/static/js/main.66f9ba9b.chunk.js.map",
     "runtime-main.js": "/dota-app/static/js/runtime-main.ad1abd2e.js",
     "runtime-main.js.map": "/dota-app/static/js/runtime-main.ad1abd2e.js.map",
-    "static/js/2.ab97b5cd.chunk.js": "/dota-app/static/js/2.ab97b5cd.chunk.js",
-    "static/js/2.ab97b5cd.chunk.js.map": "/dota-app/static/js/2.ab97b5cd.chunk.js.map",
+    "static/js/2.2fa51d50.chunk.js": "/dota-app/static/js/2.2fa51d50.chunk.js",
+    "static/js/2.2fa51d50.chunk.js.map": "/dota-app/static/js/2.2fa51d50.chunk.js.map",
     "index.html": "/dota-app/index.html",
-    "precache-manifest.c2591811f97a85d009afac321104dc90.js": "/dota-app/precache-manifest.c2591811f97a85d009afac321104dc90.js",
+    "precache-manifest.af63eeb124e9d41404bccaf31ee710c8.js": "/dota-app/precache-manifest.af63eeb124e9d41404bccaf31ee710c8.js",
     "service-worker.js": "/dota-app/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/dota-app/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.ab97b5cd.chunk.js.LICENSE.txt": "/dota-app/static/js/2.ab97b5cd.chunk.js.LICENSE.txt",
-    "static/media/Techies.jpg": "/dota-app/static/media/Techies.e1a1c4af.jpg"
+    "static/css/main.9274c842.chunk.css.map": "/dota-app/static/css/main.9274c842.chunk.css.map",
+    "static/js/2.2fa51d50.chunk.js.LICENSE.txt": "/dota-app/static/js/2.2fa51d50.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ad1abd2e.js",
-    "static/js/2.ab97b5cd.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.72975d26.chunk.js"
+    "static/js/2.2fa51d50.chunk.js",
+    "static/css/main.9274c842.chunk.css",
+    "static/js/main.66f9ba9b.chunk.js"
   ]
 }

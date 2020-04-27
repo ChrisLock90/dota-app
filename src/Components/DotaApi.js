@@ -5,7 +5,8 @@ constructor(props){
     super(props);
     this.state = {        
         topPlayers: [],
-        heroDetails: props.hero
+        heroDetails: props.hero,
+        LaneRoles: []
     };
 }
 
@@ -28,12 +29,15 @@ componentDidMount(){
     this.getTopPlayers();
 }
 
+componentWillReceiveProps(props){
+    this.setState({ heroDetails: props.hero })
+}
 
 render() {    
     return (
-        <div>
+        <div>            
             { heroName(this.state.heroDetails) }
-            { techiesInformation(this.state.heroDetails) }
+            { heroInformation(this.state.heroDetails) }
             { showTopPlayers(this.state.topPlayers, this.state.heroDetails) }         
         </div>
     );
@@ -42,17 +46,17 @@ render() {
 
 export default DotaComponent;
 
-function heroName(props) {
-    return <h2>{ props.localized_name } Information</h2>
+function heroName(name) {
+    return <h2>{ name.localized_name } Information</h2>
 }
     
-function techiesInformation(props) { 
+function heroInformation(heroInfo) { 
     return(
         <div>
-            <label>Primary Attribute: </label>{ props.primary_attr }<p />             
-            <label>Attack Type: </label>{ props.attack_type }<p />             
-            <label>Roles: </label>{ props.roles }<p />         
-            <label>Legs: </label>{ props.legs }<p />
+            <label>Primary Attribute: </label>{ heroInfo.primary_attr }<p />             
+            <label>Attack Type: </label>{ heroInfo.attack_type }<p />             
+            <label>Roles: </label>{ heroInfo.roles }<p />         
+            <label>Legs: </label>{ heroInfo.legs }<p />
         </div>        
     );
 }
@@ -71,3 +75,6 @@ function showTopPlayers(players, heroName) {
     )
 }
 }
+
+
+

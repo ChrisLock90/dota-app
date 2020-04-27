@@ -40,11 +40,11 @@ GetId(id){
 
 render() {    
 
-    const heroNames = this.state.heroes.map((item, key) => <button onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
+    const heroNames = this.state.heroes.map((item, key) => <button class="btn-group" onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
     
     return (       
         <div>
-        <ul>{ heroNames }</ul>       
+        <ul>{ heroNames }</ul>        
         { HeroId(this.state.heroes, this.state.id) }
         </div>
     );
@@ -57,7 +57,9 @@ export default HeroList;
 //function for when we have selected a hero id
 function HeroId(selectedHero, id){
     if(id !== -1)
-        return <div><DotaApi hero = { selectedHero[id] } /></div> 
+    {                
+        return <div><DotaApi hero = { selectedHero.find(x => x.id === id) } /></div> 
+    }
 }
 
 function SortList(heroNameArray){
@@ -67,5 +69,3 @@ function SortList(heroNameArray){
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
 }
-
-

@@ -1,8 +1,11 @@
 import React, {} from 'react';
 
+
 class DotaComponent extends React.Component {
-constructor(props){
-    super(props);
+    _isMounted = false;
+
+    constructor(props){
+    super(props);   
     this.state = {        
         topPlayers: [],
         heroDetails: props.hero,
@@ -17,16 +20,23 @@ getTopPlayers(){
     )
     .then(response => response.json())
     .then(response => {
-        this.setState({             
-            topPlayers: response 
-        })
+        if(this._isMounted) {
+            this.setState({             
+                topPlayers: response 
+            })
+        }
     })
     .catch(err => {console.log(err)
     });
 }
 
 componentDidMount(){
+    this._isMounted = true;
     this.getTopPlayers();
+}
+
+componentWillUnmount(){
+    this._isMounted = false;
 }
 
 componentWillReceiveProps(props){
@@ -35,10 +45,10 @@ componentWillReceiveProps(props){
 
 render() {    
     return (
-        <div>            
-            { heroName(this.state.heroDetails) }
-            { heroInformation(this.state.heroDetails) }
-            { showTopPlayers(this.state.topPlayers, this.state.heroDetails) }         
+        <div className="grid-container">
+            <div className="grid-item"> { heroName(this.state.heroDetails) } </div>
+            <div className="grid-item"> { heroInformation(this.state.heroDetails) } </div>
+            <div className="grid-item"> { showTopPlayers(this.state.topPlayers, this.state.heroDetails) } </div>                                                                                                                                    
         </div>
     );
 }

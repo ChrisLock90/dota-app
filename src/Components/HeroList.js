@@ -3,12 +3,14 @@ import DotaApi from './DotaApi';
 
 class HeroList extends React.Component
 {
-constructor(props){
-    super(props);
-    this.state = {
-        heroes: [],
-        id: -1
-    };    
+    _isMounted = false;
+
+    constructor(props){
+        super(props);    
+        this.state = {
+            heroes: [],
+            id: -1
+        };    
 }
   
 getHeroData() {
@@ -19,46 +21,56 @@ getHeroData() {
     .then(response => response.json())    
     .then(response => {        
         SortList(response);
-        this.setState({             
-            heroes: response
-        })
+        if (this._isMounted)
+        {
+            this.setState({             
+                heroes: response
+            })
+        }
     })
     .catch(err => {console.log(err);
     });    
 }
 
 componentDidMount(){
+    this._isMounted = true;
     this.getHeroData();    
+}
+
+componentWillUnmount(){
+    this._isMounted = false;
 }
 
 GetId(id){
     this.setState({
         id: id
-    })
-     
+    })     
 }
 
 render() {    
 
-    const heroNames = this.state.heroes.map((item, key) => <button class="btn-group" onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
+    const heroNames = this.state.heroes.map((item, key) => <button className="btn-groups" onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
     
     return (       
-        <div>
-        <ul>{ heroNames }</ul>        
-        { HeroId(this.state.heroes, this.state.id) }
-        </div>
+        [ CenteredGrid(heroNames) , HeroId(this.state.heroes, this.state.id) ]              
     );
 }
-
 }
 
 export default HeroList;
+
+function CenteredGrid(heroNames) {
+    return (    
+        [ heroNames ]                                        
+    )
+}
+
 //pass clicked id to DotaApi.js
 //function for when we have selected a hero id
 function HeroId(selectedHero, id){
     if(id !== -1)
     {                
-        return <div><DotaApi hero = { selectedHero.find(x => x.id === id) } /></div> 
+        return <DotaApi hero = { selectedHero.find(x => x.id === id) } />
     }
 }
 

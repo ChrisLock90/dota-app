@@ -47,7 +47,7 @@ function showTopPlayers(players, heroName) {
     if(players && players.rankings && players.rankings.length > 0) {
     return(
         <div className="player-text">
-            <label>Current Top 5 { heroName.localized_name } Players</label><p /> 
+            <label>Current Top 5 { heroName.localized_name } Players </label><p /> 
             <label>1. { players.rankings[0].personaname }</label>
             <label>2. { players.rankings[1].personaname }</label>
             <label>3. { players.rankings[2].personaname }</label>

@@ -4,10 +4,12 @@ import DotaApi from './DotaApi';
 class HeroList extends React.Component
 {
     _isMounted = false;
-    
+  
+
     constructor(props){
         super(props);    
         this.state = {
+            hasGotTopPlayers: false,
             heroes: [],
             id: -1,
             topPlayers: []
@@ -32,9 +34,10 @@ getHeroData() {
     });    
 }
 
-
-getTopPlayers() {
-    fetch("https://api.opendota.com/api/rankings?hero_id=" + this.state.id, {
+getTopPlayers(id) {
+    this.state.hasGotTopPlayers = false;
+    
+    fetch("https://api.opendota.com/api/rankings?hero_id=" + id, {
         "method": "GET"
         }
     )
@@ -42,8 +45,9 @@ getTopPlayers() {
     .then(response => {
         if(this._isMounted) {
             this.setState({             
-                topPlayers: response 
-            })
+                topPlayers: response,
+                hasGotTopPlayers: true
+            })            
         }
     })
     .catch(err => {console.log(err)
@@ -64,21 +68,31 @@ GetId(id){
     this.setState({
         id: id
     })  
-    this.getTopPlayers();   
+    this.getTopPlayers(id);   
 }
 
 render() {    
 
     const heroNames = this.state.heroes.map((item, key) => <button className="btn-groups" onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
-    
+       
     return (       
         <div className = "main-display">
             <div>{ CenteredGrid(heroNames) }</div> 
-            <div>{ HeroId(this.state.heroes, this.state.id, this.state.topPlayers) }</div>
+            { this.showTopPlayers() }                      
         </div>
-    );
+        );
+    }  
+
+    showTopPlayers() {
+        if(this.state.hasGotTopPlayers) { 
+            return <div>{ HeroId(this.state.heroes, this.state.id, this.state.topPlayers) }</div>
+        }
+        else {
+            return <div class="loader"></div>
+        }
+    }
 }
-}
+
 
 export default HeroList;
 
@@ -87,6 +101,8 @@ function CenteredGrid(heroNames) {
         [ heroNames ]                                        
     )
 }
+
+
 
 function HeroId(selectedHero, id, players){
     if(id !== -1)

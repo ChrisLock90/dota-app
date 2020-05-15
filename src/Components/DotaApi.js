@@ -1,54 +1,26 @@
 import React, {} from 'react';
 
 
-class DotaComponent extends React.Component {
-    _isMounted = false;
-
+class DotaComponent extends React.Component {  
     constructor(props){
     super(props);   
     this.state = {        
-        topPlayers: [],
+        topPlayers: props.topPlayers,
         heroDetails: props.hero,
         LaneRoles: []
     };
 }
 
-getTopPlayers(){
-    fetch("https://api.opendota.com/api/rankings?hero_id=" + this.state.heroDetails.id, {
-        "method": "GET"
-        }
-    )
-    .then(response => response.json())
-    .then(response => {
-        if(this._isMounted) {
-            this.setState({             
-                topPlayers: response 
-            })
-        }
-    })
-    .catch(err => {console.log(err)
-    });
-}
-
-componentDidMount(){
-    this._isMounted = true;
-    this.getTopPlayers();
-}
-
-componentWillUnmount(){
-    this._isMounted = false;
-}
-
 componentWillReceiveProps(props){
     this.setState({ heroDetails: props.hero })
+    this.setState({ topPlayers: props.topPlayers })    
 }
 
 render() {    
     return (
         <div className="grid-container">
-            <div className="grid-item"> { heroName(this.state.heroDetails) } </div>
-            <div className="grid-item"> { heroInformation(this.state.heroDetails) } </div>
-            <div className="grid-item"> { showTopPlayers(this.state.topPlayers, this.state.heroDetails) } </div>                                                                                                                                    
+            <div className="grid-item-hero"> { heroName(this.state.heroDetails) } { heroInformation(this.state.heroDetails) } </div>
+            <div className="grid-item-player"> { showTopPlayers(this.state.topPlayers, this.state.heroDetails) } </div>                                                                                                                                    
         </div>
     );
 }
@@ -57,12 +29,12 @@ render() {
 export default DotaComponent;
 
 function heroName(name) {
-    return <h2>{ name.localized_name } Information</h2>
+    return <label>{ name.localized_name } Information</label>
 }
     
 function heroInformation(heroInfo) { 
     return(
-        <div>
+        <div className="hero-text">
             <label>Primary Attribute: </label>{ heroInfo.primary_attr }<p />             
             <label>Attack Type: </label>{ heroInfo.attack_type }<p />             
             <label>Roles: </label>{ heroInfo.roles }<p />         
@@ -72,15 +44,15 @@ function heroInformation(heroInfo) {
 }
 
 function showTopPlayers(players, heroName) {   
-    if(players.rankings !== null && players.rankings !== undefined) {
+    if(players && players.rankings && players.rankings.length > 0) {
     return(
-        <div>
-            <h2>Current Top 5 { heroName.localized_name } Players</h2><p /> 
-            <label>1. </label>{ players.rankings[0].personaname }<p />
-            <label>2. </label>{ players.rankings[1].personaname }<p />
-            <label>3. </label>{ players.rankings[2].personaname }<p />
-            <label>4. </label>{ players.rankings[3].personaname }<p />
-            <label>5. </label>{ players.rankings[4].personaname }<p />
+        <div className="player-text">
+            <label>Current Top 5 { heroName.localized_name } Players</label><p /> 
+            <label>1. { players.rankings[0].personaname }</label>
+            <label>2. { players.rankings[1].personaname }</label>
+            <label>3. { players.rankings[2].personaname }</label>
+            <label>4. { players.rankings[3].personaname }</label>
+            <label>5. { players.rankings[4].personaname }</label>
         </div>
     )
 }

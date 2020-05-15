@@ -4,12 +4,13 @@ import DotaApi from './DotaApi';
 class HeroList extends React.Component
 {
     _isMounted = false;
-
+    
     constructor(props){
         super(props);    
         this.state = {
             heroes: [],
-            id: -1
+            id: -1,
+            topPlayers: []
         };    
 }
   
@@ -21,8 +22,7 @@ getHeroData() {
     .then(response => response.json())    
     .then(response => {        
         SortList(response);
-        if (this._isMounted)
-        {
+        if (this._isMounted) {
             this.setState({             
                 heroes: response
             })
@@ -32,9 +32,28 @@ getHeroData() {
     });    
 }
 
+
+getTopPlayers() {
+    fetch("https://api.opendota.com/api/rankings?hero_id=" + this.state.id, {
+        "method": "GET"
+        }
+    )
+    .then(response => response.json())
+    .then(response => {
+        if(this._isMounted) {
+            this.setState({             
+                topPlayers: response 
+            })
+        }
+    })
+    .catch(err => {console.log(err)
+    });
+}
+
 componentDidMount(){
     this._isMounted = true;
     this.getHeroData();    
+    this.getTopPlayers();
 }
 
 componentWillUnmount(){
@@ -44,7 +63,8 @@ componentWillUnmount(){
 GetId(id){
     this.setState({
         id: id
-    })     
+    })  
+    this.getTopPlayers();   
 }
 
 render() {    
@@ -52,7 +72,10 @@ render() {
     const heroNames = this.state.heroes.map((item, key) => <button className="btn-groups" onClick={ this.GetId.bind(this, item.id) } key={item.id}>{item.localized_name}</button>);
     
     return (       
-        [ CenteredGrid(heroNames) , HeroId(this.state.heroes, this.state.id) ]              
+        <div className = "main-display">
+            <div>{ CenteredGrid(heroNames) }</div> 
+            <div>{ HeroId(this.state.heroes, this.state.id, this.state.topPlayers) }</div>
+        </div>
     );
 }
 }
@@ -65,12 +88,10 @@ function CenteredGrid(heroNames) {
     )
 }
 
-//pass clicked id to DotaApi.js
-//function for when we have selected a hero id
-function HeroId(selectedHero, id){
+function HeroId(selectedHero, id, players){
     if(id !== -1)
     {                
-        return <DotaApi hero = { selectedHero.find(x => x.id === id) } />
+        return <DotaApi hero = { selectedHero.find(x => x.id === id) } topPlayers = { players }  />
     }
 }
 

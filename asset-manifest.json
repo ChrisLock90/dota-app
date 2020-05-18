@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/dota-app/static/css/main.2d539a07.chunk.css",
-    "main.js": "/dota-app/static/js/main.b46726aa.chunk.js",
-    "main.js.map": "/dota-app/static/js/main.b46726aa.chunk.js.map",
+    "main.css": "/dota-app/static/css/main.4d3dd4fc.chunk.css",
+    "main.js": "/dota-app/static/js/main.fbde1446.chunk.js",
+    "main.js.map": "/dota-app/static/js/main.fbde1446.chunk.js.map",
     "runtime-main.js": "/dota-app/static/js/runtime-main.ad1abd2e.js",
     "runtime-main.js.map": "/dota-app/static/js/runtime-main.ad1abd2e.js.map",
-    "static/js/2.2fa51d50.chunk.js": "/dota-app/static/js/2.2fa51d50.chunk.js",
-    "static/js/2.2fa51d50.chunk.js.map": "/dota-app/static/js/2.2fa51d50.chunk.js.map",
+    "static/css/2.69121389.chunk.css": "/dota-app/static/css/2.69121389.chunk.css",
+    "static/js/2.c83fccba.chunk.js": "/dota-app/static/js/2.c83fccba.chunk.js",
+    "static/js/2.c83fccba.chunk.js.map": "/dota-app/static/js/2.c83fccba.chunk.js.map",
     "index.html": "/dota-app/index.html",
-    "precache-manifest.dd37d256ebe0fe354603be257e1d4705.js": "/dota-app/precache-manifest.dd37d256ebe0fe354603be257e1d4705.js",
+    "precache-manifest.361dbd82f126d7c2588c65c05a884f92.js": "/dota-app/precache-manifest.361dbd82f126d7c2588c65c05a884f92.js",
     "service-worker.js": "/dota-app/service-worker.js",
-    "static/css/main.2d539a07.chunk.css.map": "/dota-app/static/css/main.2d539a07.chunk.css.map",
-    "static/js/2.2fa51d50.chunk.js.LICENSE.txt": "/dota-app/static/js/2.2fa51d50.chunk.js.LICENSE.txt"
+    "static/css/2.69121389.chunk.css.map": "/dota-app/static/css/2.69121389.chunk.css.map",
+    "static/css/main.4d3dd4fc.chunk.css.map": "/dota-app/static/css/main.4d3dd4fc.chunk.css.map",
+    "static/js/2.c83fccba.chunk.js.LICENSE.txt": "/dota-app/static/js/2.c83fccba.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ad1abd2e.js",
-    "static/js/2.2fa51d50.chunk.js",
-    "static/css/main.2d539a07.chunk.css",
-    "static/js/main.b46726aa.chunk.js"
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.c83fccba.chunk.js",
+    "static/css/main.4d3dd4fc.chunk.css",
+    "static/js/main.fbde1446.chunk.js"
   ]
 }

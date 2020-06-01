@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a38652de3606da61dcecf24d0965519b",
+    "revision": "baf08409404b7d28d1bce8b129b76107",
     "url": "/dota-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dota-app/static/css/2.69121389.chunk.css"
   },
   {
-    "revision": "c3ec5f46956074ece431",
-    "url": "/dota-app/static/css/main.4d3dd4fc.chunk.css"
+    "revision": "d941a85df88dd7ac54a9",
+    "url": "/dota-app/static/css/main.286feec5.chunk.css"
   },
   {
     "revision": "ed52938859a8f984725b",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dota-app/static/js/2.c83fccba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c3ec5f46956074ece431",
-    "url": "/dota-app/static/js/main.fbde1446.chunk.js"
+    "revision": "d941a85df88dd7ac54a9",
+    "url": "/dota-app/static/js/main.fe02cc83.chunk.js"
   },
   {
     "revision": "3af3605ae71cdd4d4dea",

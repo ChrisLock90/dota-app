@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dota-app/static/css/main.286feec5.chunk.css",
+    "main.css": "/dota-app/static/css/main.fed0fa09.chunk.css",
     "main.js": "/dota-app/static/js/main.fe02cc83.chunk.js",
     "main.js.map": "/dota-app/static/js/main.fe02cc83.chunk.js.map",
     "runtime-main.js": "/dota-app/static/js/runtime-main.ad1abd2e.js",
@@ -9,17 +9,17 @@
     "static/js/2.c83fccba.chunk.js": "/dota-app/static/js/2.c83fccba.chunk.js",
     "static/js/2.c83fccba.chunk.js.map": "/dota-app/static/js/2.c83fccba.chunk.js.map",
     "index.html": "/dota-app/index.html",
-    "precache-manifest.8006abe57564ab3a303b785c711ea8e0.js": "/dota-app/precache-manifest.8006abe57564ab3a303b785c711ea8e0.js",
+    "precache-manifest.2514e2425997c35b89ad33731f008e16.js": "/dota-app/precache-manifest.2514e2425997c35b89ad33731f008e16.js",
     "service-worker.js": "/dota-app/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/dota-app/static/css/2.69121389.chunk.css.map",
-    "static/css/main.286feec5.chunk.css.map": "/dota-app/static/css/main.286feec5.chunk.css.map",
+    "static/css/main.fed0fa09.chunk.css.map": "/dota-app/static/css/main.fed0fa09.chunk.css.map",
     "static/js/2.c83fccba.chunk.js.LICENSE.txt": "/dota-app/static/js/2.c83fccba.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ad1abd2e.js",
     "static/css/2.69121389.chunk.css",
     "static/js/2.c83fccba.chunk.js",
-    "static/css/main.286feec5.chunk.css",
+    "static/css/main.fed0fa09.chunk.css",
     "static/js/main.fe02cc83.chunk.js"
   ]
 }
